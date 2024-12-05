@@ -54,7 +54,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className=" flex justify-center items-center normal-case font-bold text-lg md:text-3xl lg:text-3xl">
-                    <img className="h-20 w-20" src={'https://i.ibb.co.com/RCPtdcP/5629119.png'} alt="" />
+                    <img className="h-20 w-20" src={'https://i.ibb.co.com/59PBBgH/r.jpg'} alt="" />
 
                     Game<span className="text-2xl md:text-4xl lg:text-4xl text-orange-600"> Buzz</span></a>
             </div>
