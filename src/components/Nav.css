@@ -1,0 +1,10 @@
+body.light {
+    background-color: white;
+    color: black;
+}
+
+/* Dark Theme */
+body.dark {
+    background-color: black;
+    color: white;
+}

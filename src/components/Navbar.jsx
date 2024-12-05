@@ -1,19 +1,34 @@
 import { Link, NavLink } from "react-router-dom";
-import { CiHome } from "react-icons/ci";
-import { TbBrand4Chan } from "react-icons/tb";
-import { CgProfile } from "react-icons/cg";
-import { FaChalkboardTeacher } from "react-icons/fa";
-
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "./provider/AuthProvider";
+import { Tooltip } from 'react-tooltip'
+import { CiLight } from "react-icons/ci";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
 
-    // const { user, LogOut } = useContext(AuthContext)
+    const { user, LogOut } = useContext(AuthContext)
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
-    // const handleSignOut = () => {
-    //     LogOut()
-    //         .then()
-    //         .catch()
-    // }
+    // Sync theme with HTML tag
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setIsDarkMode(savedTheme === 'dark');
+        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+    }, []);
+
+    // Toggle the theme
+    const toggleTheme = () => {
+        setIsDarkMode((pre) => !pre);
+        const newTheme = !isDarkMode ? 'dark' : 'light';
+        document.documentElement.classList.toggle('dark', newTheme === 'dark');
+        localStorage.setItem('theme', newTheme);
+    };
+    const handleSignOut = () => {
+        LogOut()
+            .then()
+            .catch()
+    }
 
     const links = <>
 
@@ -23,11 +38,11 @@ const Navbar = () => {
         <li > <NavLink to={'/myReview'}>My Review</NavLink></li>
         <li > <NavLink to={'/game'}>Game WatchList</NavLink></li>
 
-        
+
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-white dark:bg-gray-800 p-4 text-black dark:text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,10 +52,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className=" flex justify-center items-center normal-case font-bold text-lg md:text-3xl lg:text-3xl"> 
+                <a className=" flex justify-center items-center normal-case font-bold text-lg md:text-3xl lg:text-3xl">
                     <img className="h-20 w-20" src={'https://i.ibb.co.com/RCPtdcP/5629119.png'} alt="" />
-                    
-                    Coupon<span className="text-2xl md:text-4xl lg:text-4xl text-sky-700">Catcher</span></a>
+
+                    Game<span className="text-2xl md:text-4xl lg:text-4xl text-orange-600"> Buzz</span></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className=" active mx-5  flex justify-center items-center gap-6 px-1 menu-horizontal font-medium text-lg ">
@@ -61,19 +76,32 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
 
-                {/* {
+                {
                     user ?
                         <div className="flex items-center gap-1 md:gap-4 lg:gap-4">
                             {user.photoURL
                                 && (
-                                    <img src={user.photoURL
-                                    } alt="" className="w-10 h-10 rounded-full" />
+                                    <>
+                                        <img
+                                            onClick={handleSignOut}
+                                            src={user.photoURL}
+                                            alt="" className="w-14 h-14 rounded-full"
+                                            data-tooltip-id="my-tooltip"
+                                            data-tooltip-content={user.email} />
+                                        <Tooltip id="my-tooltip" place="top" />
+                                    </>
                                 )}
 
-                            {user.email && (
-                                <span className="hidden sm:inline">{user.email}</span>
-                            )}
-                            <button onClick={handleSignOut} className="py-3 px-5 text-white font-medium rounded-lg bg-sky-700 ">Sign Out</button>
+                            <button
+                                onClick={toggleTheme}
+                                className="px-2 py-2 rounded-3xl bg-black text-white dark:bg-gray-700 dark:text-gray-300"
+                            >
+                                
+                                {isDarkMode ? <CiLight className="text-2xl" /> : <MdOutlineDarkMode className="text-2xl"/>}
+                            </button>
+
+                            
+
                         </div>
                         :
                         <div className='flex items-center gap-4'>
@@ -84,7 +112,7 @@ const Navbar = () => {
                                 <button className="py-3 px-5 text-white font-medium rounded-lg bg-sky-700 ">Register</button>
                             </Link>
                         </div>
-                } */}
+                }
 
 
             </div>

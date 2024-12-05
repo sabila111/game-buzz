@@ -9,16 +9,19 @@ import {
 import Root from './components/root/Root.jsx';
 import Home from './components/home/Home.jsx';
 import Login from './components/login/Login.jsx';
-import Registration from './components/Registration/Registration.jsx';
 import AllReview from './components/all-Review/AllReview.jsx';
 import AddReview from './components/add/AddReview.jsx';
 import Game from './components/game/Game.jsx';
 import MyReview from './components/my/MyReview.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
+import AuthProvider from './components/provider/AuthProvider.jsx';
+import Register from './components/Registration/Register.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -45,8 +48,8 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/registration",
-        element: <Registration></Registration>,
+        path: "/register",
+        element:<Register></Register> ,
       },
     ],
   },
@@ -54,6 +57,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+   <AuthProvider>
+   <RouterProvider router={router} />
+   </AuthProvider>
   </StrictMode>,
 )
