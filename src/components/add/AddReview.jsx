@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddReview = () => {
 
+    const {user} = useContext(AuthContext)
+
     const handleAddProduct = e => {
 
-        const [user, setUser] = useState('')
+      
 
-        useEffect(() =>{
-            const loggedInUser= 
-        },[])
+        // const [user, setUser] = useState('')
+
+        // useEffect(() =>{
+        //     const loggedInUser= {name:'', email: ''}
+        //     setUser(loggedInUser)
+        // },[])
 
         e.preventDefault()
         const form = e.target
@@ -43,27 +49,31 @@ const AddReview = () => {
             <h2 className="text-3xl font-extrabold mb-4 text-center">Add Game Review</h2>
             <form onSubmit={handleAddProduct}>
                 {/* form row 1 */}
+                {user? 
                 <div className="md:flex mb-6">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="name" placeholder="name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="email" name="email" placeholder="email" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-
-
+                <div className="form-control md:w-1/2">
+                    <label className="label">
+                        <span className="label-text">Name</span>
+                    </label>
+                    <label className="input-group">
+                        <input readOnly value={user.displayName || 'No Name'} type="text" name="name" placeholder="name" className="input input-bordered w-full" />
+                    </label>
                 </div>
+
+                <div className="form-control md:w-1/2 ml-4">
+                    <label className="label">
+                        <span className="label-text">Email</span>
+                    </label>
+                    <label className="input-group">
+                        <input readOnly value={user.email} type="email" name="email" placeholder="email" className="input input-bordered w-full" />
+                    </label>
+                </div>
+
+
+            </div>
+                
+                :   <p></p> }
+                
 
                 {/* form row 2 */}
                 <div className="md:flex mb-6">
