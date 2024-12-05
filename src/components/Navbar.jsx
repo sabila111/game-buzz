@@ -10,20 +10,21 @@ const Navbar = () => {
     const { user, LogOut } = useContext(AuthContext)
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    // Sync theme with HTML tag
+
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme') || 'light';
         setIsDarkMode(savedTheme === 'dark');
         document.documentElement.classList.toggle('dark', savedTheme === 'dark');
     }, []);
 
-    // Toggle the theme
+
     const toggleTheme = () => {
         setIsDarkMode((pre) => !pre);
         const newTheme = !isDarkMode ? 'dark' : 'light';
         document.documentElement.classList.toggle('dark', newTheme === 'dark');
         localStorage.setItem('theme', newTheme);
     };
+
     const handleSignOut = () => {
         LogOut()
             .then()
@@ -62,7 +63,7 @@ const Navbar = () => {
                     <style>
                         {`
   .menu-horizontal li:hover {
-    background-color:  rgb(3 105 161);
+    background-color:  rgb(234 88 12);
     padding:10px;
     border-radius:5px;
     color: white;

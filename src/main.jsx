@@ -16,6 +16,7 @@ import MyReview from './components/my/MyReview.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import AuthProvider from './components/provider/AuthProvider.jsx';
 import Register from './components/Registration/Register.jsx';
+import PrivateRoute from './components/privateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addReview",
-        element: <AddReview></AddReview>,
+        element: <PrivateRoute><AddReview></AddReview></PrivateRoute>,
       },
       {
         path: "/myReview",
