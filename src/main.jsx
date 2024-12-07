@@ -50,6 +50,7 @@ const router = createBrowserRouter([
       {
         path: "/game",
         element: <PrivateRoute><Game></Game></PrivateRoute>,
+        loader: ()=> fetch('http://localhost:5000/game')
       },
       {
         path: "/login",

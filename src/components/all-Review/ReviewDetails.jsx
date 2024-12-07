@@ -1,13 +1,64 @@
+import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const ReviewDetails = () => {
     const review = useLoaderData()
+    const{user}= useContext(AuthContext)
     const { _id,name, email, game, genres, rating, description, image, publish } = review
     console.log(review)
+
+    const handleWatchList = ()=>{
+
+
+
+        if (!user) {
+            alert("You must be logged in to add to the watchlist!");
+            return;
+          }
+
+          const watchlistData = {
+            game,
+            genres,
+            rating,
+            description,
+            image,
+            publish,
+           email: user.email,
+            name: user.displayName,
+          };
+
+        fetch('http://localhost:5000/game', {
+            method:'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            
+            body:JSON.stringify(watchlistData)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Added to watchlist successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                }
+    
+            })
+    } 
+
+   
+
     return (
         <div className="card card-compact bg-base-100 max-w-3xl shadow-xl mx-auto">
   <figure>
     <img
+    className="w-full h-96"
       src={image}
       alt="Shoes" />
   </figure>
@@ -20,7 +71,7 @@ const ReviewDetails = () => {
    <p className="font-semibold text-xl ">Rating: {rating} ⭐</p>
    </div>
     <div className="text-center">
-    <Link to={`/game/${review._id}`}>  <button className="px-3 py-3 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold">Add to WatchList</button></Link>
+      <button onClick={handleWatchList} className="px-3 py-3 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold">Add to WatchList</button>
     </div>
   </div>
 </div>
