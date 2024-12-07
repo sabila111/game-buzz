@@ -13,12 +13,12 @@ const Game = () => {
       <table className="table">
     
         <thead>
-          <tr className='font-bold text-xl'>
+          <tr className='font-bold text-xl '>
             <th>Image</th>
             <th>Game</th>
             <th>Genres</th>
             <th>Rating</th>
-            <th>Actions</th>
+            <th className='text-center'>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -28,16 +28,16 @@ const Game = () => {
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
-                    <div className="mask mask-squircle h-12 w-12">
+                    <div className=" h-40 w-40">
                       <img src={games.image} alt={games.game} />
                     </div>
                   </div>
                 </div>
               </td>
-              <td>{games.game}</td>
-              <td>{games.genres}</td>
-              <td>{games.rating} ⭐</td>
-              <td className='w-96'>
+              <td className='font-semibold text-lg'>{games.game}</td>
+              <td className='font-semibold text-lg'>{games.genres}</td>
+              <td className='font-semibold text-lg'>{games.rating} ⭐</td>
+              <td className='font-semibold text-lg w-2/5'>
                 {games.description}
               </td>
             </tr>
