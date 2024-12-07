@@ -107,10 +107,10 @@ const Navbar = () => {
                         :
                         <div className='flex items-center gap-4'>
                             <Link to={'/login'}>
-                                <button className="py-3 px-5 text-white font-medium rounded-lg bg-sky-700 ">Login</button>
+                                <button className="py-3 px-5 text-white font-medium rounded-lg bg-gradient-to-r from-orange-400 to-orange-600  ">Login</button>
                             </Link>
                             <Link to={'/register'}>
-                                <button className="py-3 px-5 text-white font-medium rounded-lg bg-sky-700 ">Register</button>
+                                <button className="py-3 px-5 text-white font-medium rounded-lg bg-gradient-to-r from-orange-400 to-orange-600">Register</button>
                             </Link>
                         </div>
                 }

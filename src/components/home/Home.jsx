@@ -1,9 +1,14 @@
+
+import News from "./News";
 import Slider from "./Slider";
+import Trending from "./Trending";
 
 const Home = () => {
     return (
-        <div className="  dark:bg-gray-900 text-black dark:text-white">
+        <div>
            <Slider></Slider>
+           <Trending></Trending>
+           <News></News>
         </div>
     );
 };

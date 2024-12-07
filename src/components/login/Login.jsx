@@ -80,18 +80,18 @@ const Login = () => {
 
             </div>
             <div className="form-control mt-6">
-                <button className="w-full py-3 px-4 rounded-lg bg-sky-700 text-white">Login</button>
+                <button className="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-orange-400 to-orange-600   text-white">Login</button>
             </div>
 
             
         </form>
 
-        <button onClick={ handleGoogle} className="py-2 px-4 bg-sky-700 rounded-full text-center items-center mx-auto    md:ml-28 lg:ml-72 text-white">Google</button>
+        <button onClick={ handleGoogle} className="py-2 px-4 bg-orange-500 rounded-full text-center items-center mx-auto    md:ml-28 lg:ml-72 text-white">Google</button>
 
         {
             Error && <p className='text-red-500 text-center'> {Error}</p>
         }
-        <p className="text-center mt-4">Do not have an account? Please <Link className="text-sky-700 font-bold" to={'/register'}>Register</Link></p>
+        <p className="text-center mt-4">Do not have an account? Please <Link className="text-orange-500 font-bold" to={'/register'}>Register</Link></p>
 
        
 

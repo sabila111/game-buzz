@@ -17,6 +17,7 @@ import ErrorPage from './components/ErrorPage.jsx';
 import AuthProvider from './components/provider/AuthProvider.jsx';
 import Register from './components/Registration/Register.jsx';
 import PrivateRoute from './components/privateRoute/PrivateRoute.jsx';
+import ReviewDetails from './components/all-Review/ReviewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,12 @@ const router = createBrowserRouter([
       {
         path: "/allReview",
         element: <AllReview></AllReview>,
+        loader: ()=> fetch('http://localhost:5000/review')
+      },
+      {
+        path: "/allReview/:id",
+        element: <ReviewDetails></ReviewDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/review/${params.id}`)
       },
       {
         path: "/addReview",
@@ -38,11 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myReview",
-        element: <MyReview></MyReview>,
+        element: <PrivateRoute><MyReview></MyReview></PrivateRoute>,
       },
       {
         path: "/game",
-        element: <Game></Game>,
+        element: <PrivateRoute><Game></Game></PrivateRoute>,
       },
       {
         path: "/login",

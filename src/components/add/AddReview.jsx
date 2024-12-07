@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
 
     const {user} = useContext(AuthContext)
 
-    const handleAddProduct = e => {
+    const handleAddReview = e => {
 
       
 
@@ -27,27 +28,39 @@ const AddReview = () => {
         const image = form.image.value
         const publish = form.publish.value
 
-        const product = { name, email, game, genres, rating, description, image, publish }
-        console.log(product)
+        const addReview = { name, email, game, genres, rating, description, image, publish }
+        console.log(addReview)
 
-        // fetch('https://fashion-and-style-cb7t9p7sj-sabilas-projects.vercel.app/product', {
-        // method:'POST',
-        // headers:{
-        //     'content-type' : 'application/json'
-        // },
-        // body:JSON.stringify(product)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data)
+        fetch('http://localhost:5000/review', {
+        method:'POST',
+        headers:{
+            'content-type' : 'application/json'
+        },
+        
+        body:JSON.stringify(addReview)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'User added review successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
 
-        // })
+        })
+        .catch(error => {
+    console.error("catch error:", error);
+});
     }
 
     return (
         <div className="bg-gradient-to-r from-orange-200 to-orange-400 p-24">
             <h2 className="text-3xl font-extrabold mb-4 text-center">Add Game Review</h2>
-            <form onSubmit={handleAddProduct}>
+            <form onSubmit={handleAddReview}>
                 {/* form row 1 */}
                 {user? 
                 <div className="md:flex mb-6">
@@ -95,7 +108,7 @@ const AddReview = () => {
                             <datalist id="dropdown-options">
                                 <option value="Action" />
                                 <option value="Adventure" />
-                                <option value="Cooking" />
+                                <option value="RPG" />
                                 <option value="Farming" />
                             </datalist>
 
