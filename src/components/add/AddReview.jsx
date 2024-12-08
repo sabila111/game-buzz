@@ -45,7 +45,7 @@ const AddReview = () => {
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success',
-                    text: 'User added review successfully',
+                    text: 'Added review successfully',
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })

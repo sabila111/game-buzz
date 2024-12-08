@@ -13,14 +13,6 @@ const UpdateReview = () => {
     const handleUpdateReview = e => {
 
 
-
-        // const [user, setUser] = useState('')
-
-        // useEffect(() =>{
-        //     const loggedInUser= {name:'', email: ''}
-        //     setUser(loggedInUser)
-        // },[])
-
         e.preventDefault()
         const form = e.target
         const name = form.name.value
@@ -35,30 +27,30 @@ const UpdateReview = () => {
         const addReview = { name, email, game, genres, rating, description, image, publish }
         console.log(addReview)
 
-        //         fetch('http://localhost:5000/review', {
-        //         method:'POST',
-        //         headers:{
-        //             'content-type' : 'application/json'
-        //         },
+                fetch(`http://localhost:5000/review/${_id}`, {
+                method:'PUT',
+                headers:{
+                    'content-type' : 'application/json'
+                },
 
-        //         body:JSON.stringify(addReview)
-        //         })
-        //         .then(res => res.json())
-        //         .then(data => {
-        //             console.log(data)
-        //             if(data.insertedId){
-        //                 Swal.fire({
-        //                     title: 'Success',
-        //                     text: 'User added review successfully',
-        //                     icon: 'success',
-        //                     confirmButtonText: 'Cool'
-        //                   })
-        //             }
+                body:JSON.stringify(addReview)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if(data. modifiedCount > 0){
+                        Swal.fire({
+                            title: 'Success',
+                            text: 'Updated review successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Cool'
+                          })
+                    }
 
-        //         })
-        //         .catch(error => {
-        //     console.error("catch error:", error);
-        // });
+                })
+                .catch(error => {
+            console.error("catch error:", error);
+        });
 
 
 
