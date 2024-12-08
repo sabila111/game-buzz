@@ -30,7 +30,7 @@ const ReviewDetails = () => {
             name: user.displayName,
           };
 
-        fetch('http://localhost:5000/game', {
+        fetch('https://gamer-review-server.vercel.app/game', {
             method:'POST',
             headers:{
                 'content-type' : 'application/json'

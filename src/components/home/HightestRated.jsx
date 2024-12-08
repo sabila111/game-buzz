@@ -7,7 +7,7 @@ const HightestRated = () => {
     
     
     useEffect(()=>{
-        fetch('http://localhost:5000/review')
+        fetch('https://gamer-review-server.vercel.app/review')
         .then((res) => res.json())
         .then((data) =>{
             const sortedReview = data.sort((a, b) => b.rating - a.rating)

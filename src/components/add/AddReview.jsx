@@ -31,7 +31,7 @@ const AddReview = () => {
         const addReview = { name, email, game, genres, rating, description, image, publish }
         console.log(addReview)
 
-        fetch('http://localhost:5000/review', {
+        fetch('https://gamer-review-server.vercel.app/review', {
         method:'POST',
         headers:{
             'content-type' : 'application/json'
