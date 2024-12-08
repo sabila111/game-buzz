@@ -10,7 +10,7 @@ const UpdateReview = () => {
 
     const { _id, name, email, game, genres, rating, description, image, publish } = update
 
-    const handleAddReview = e => {
+    const handleUpdateReview = e => {
 
 
 
@@ -69,7 +69,7 @@ const UpdateReview = () => {
             <h2 className="text-3xl font-extrabold mb-4 text-center">
                 <Typewriter words={['Update Game Review']}></Typewriter>
                 </h2>
-            <form onSubmit={handleAddReview}>
+            <form onSubmit={handleUpdateReview}>
                 {/* form row 1 */}
                 {user ?
                     <div className="md:flex mb-6">
@@ -104,7 +104,7 @@ const UpdateReview = () => {
                             <span className="label-text">Game Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="game" placeholder="Game Name" className="input input-bordered w-full" />
+                            <input type="text" name="game" defaultValue={game} placeholder="Game Name" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -113,7 +113,7 @@ const UpdateReview = () => {
                             <span className="label-text">Genres</span>
                         </label>
                         <label className="input-group">
-                            <input list="dropdown-options" id="options" name="genres" placeholder="genres" className="input input-bordered w-full" />
+                            <input list="dropdown-options" id="options" name="genres" defaultValue={genres}  placeholder="genres" className="input input-bordered w-full" />
                             <datalist id="dropdown-options">
                                 <option value="Action" />
                                 <option value="Adventure" />
@@ -133,7 +133,7 @@ const UpdateReview = () => {
                             <span className="label-text">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" placeholder="rating" className="input input-bordered w-full" />
+                            <input type="text" name="rating" defaultValue={rating} placeholder="rating" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -142,7 +142,7 @@ const UpdateReview = () => {
                             <span className="label-text">Short Description</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="description" placeholder="description" className="input input-bordered w-full" />
+                            <input type="text" name="description" defaultValue={description} placeholder="description" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -158,7 +158,7 @@ const UpdateReview = () => {
                             <span className="label-text">Image Url</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="image" placeholder="image url" className="input input-bordered w-full" />
+                            <input type="text" name="image" defaultValue={image} placeholder="image url" className="input input-bordered w-full" />
                         </label>
                     </div>
 
@@ -167,7 +167,7 @@ const UpdateReview = () => {
                             <span className="label-text">Publishing Year</span>
                         </label>
                         <label className="input-group">
-                            <input type="date" name="publish" placeholder="Publishing Year" className="input input-bordered w-full" />
+                            <input type="date" name="publish" defaultValue={publish} placeholder="Publishing Year" className="input input-bordered w-full" />
 
                         </label>
                     </div>
@@ -176,7 +176,7 @@ const UpdateReview = () => {
                 </div>
 
 
-                <input type="submit" value="Add Button" className="btn btn-block mt-6" />
+                <input type="submit" value="Update Review" className="btn btn-block mt-6" />
             </form>
         </div>
     );
