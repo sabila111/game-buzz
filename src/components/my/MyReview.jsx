@@ -10,19 +10,12 @@ const MyReview = () => {
     const review = useLoaderData()
     const[removes, setRemoves] = useState(review)
     const{user}= useContext(AuthContext)
-
-    // const[removes, setRemoves] = useState([])
-
-    // useEffect(() => {
-    //     const filteredReviews = review.filter((reviews) => reviews.email === user?.email);
-    //     setRemoves(filteredReviews);
-    //   }, [review, user]);
-    
     
 
     const filteredReviews = review.filter((reviews) => reviews.email === user?.email);
 
     const handleReviewDelete= id => {
+        console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -33,17 +26,16 @@ const MyReview = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-            
-
-
            
         fetch(`http://localhost:5000/review/${id}`, {
             method:'DELETE'
             })
             .then(res => res.json())
             .then(data => {
-                console.log('delete is done',data)})
-             if(data.deletedCount > 0){
+                console.log('delete is done',data.deletedCount)
+            
+              if(data.deletedCount > 0){
+                console.log('anything')
                 Swal.fire({
                         title: "Deleted!",
                         text: "Your review has been deleted.",
@@ -51,9 +43,12 @@ const MyReview = () => {
                       });
 
                   const remainingReviews = removes.filter(remove => remove._id !== id)
+                  console.log(remainingReviews,'deleted')
                   setRemoves(remainingReviews)
-
              }
+            
+            })
+           
             }
           });
     }
@@ -68,11 +63,11 @@ const MyReview = () => {
  </h2>
 
 <div className="overflow-x-auto pt-10">
-      <table className="table-auto w-full">
+      <table className="sm:table-auto md:table lg:table w-full">
     
-        <thead>
-          <tr className='font-bold  sm:text-base md:text-lg lg:text-xl'>
-            <th >Image</th>
+        <thead >
+          <tr className='font-bold  sm:text-base md:text-lg lg:text-xl '>
+            <th className="text-center">Image</th>
             <th>Game</th>
             <th>Genres</th>
             <th>Rating</th>
@@ -82,7 +77,7 @@ const MyReview = () => {
         </thead>
         <tbody>
          
-          {filteredReviews.map((reviews) => (
+          {removes.map((reviews) => (
             <tr key={reviews._id}
             className="text-xs sm:text-sm md:text-base lg:text-lg border-b"
             >
@@ -102,7 +97,7 @@ const MyReview = () => {
                 {reviews.description}
               </td>
               <td className='font-semibold text-lg'>
-                <div className="flex flex-col sm:flex-row items-center gap-3">
+                <div className="flex flex-col  items-center gap-3">
 
                 <button onClick={()=>handleReviewDelete(reviews._id)} className="bg-gradient-to-r from-orange-400 to-orange-600 text-white sm:text-base md:text-lg lg:text-xl px-3 py-2 sm:px-4 sm:py-3 "><IoTrashBinOutline /></button>
 
