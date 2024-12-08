@@ -20,7 +20,7 @@ const Game = () => {
       <table className="sm:table-auto md:table lg:table w-full">
     
         <thead>
-          <tr className='font-bold  sm:text-base md:text-lg lg:text-xl  '>
+          <tr className=' font-bold  sm:text-base md:text-lg lg:text-xl  '>
             <th>Image</th>
             <th>Game</th>
             <th>Genres</th>
