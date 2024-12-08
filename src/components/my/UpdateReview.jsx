@@ -125,7 +125,14 @@ const UpdateReview = () => {
                             <span className="label-text">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" defaultValue={rating} placeholder="rating" className="input input-bordered w-full" />
+                            <input type="text" name="rating" defaultValue={rating} placeholder="rating" className="input input-bordered w-full"
+                            max="10" 
+                            min="1"
+                            onInput={(e) => {
+                                if (e.target.value > 10) e.target.value = 10; 
+                                if (e.target.value < 1) e.target.value = 1;    
+                            }}
+                            />
                         </label>
                     </div>
 

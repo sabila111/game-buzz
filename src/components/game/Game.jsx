@@ -17,10 +17,10 @@ const Game = () => {
 
  </h2>
 <div className="overflow-x-auto pt-8">
-      <table className="table">
+      <table className="sm:table-auto md:table lg:table w-full">
     
         <thead>
-          <tr className='font-bold text-xl '>
+          <tr className='font-bold  sm:text-base md:text-lg lg:text-xl  '>
             <th>Image</th>
             <th>Game</th>
             <th>Genres</th>
@@ -32,23 +32,25 @@ const Game = () => {
         <tbody>
          
           {filteredGames.map((games) => (
-            <tr key={games._id}>
+            <tr key={games._id}
+             className="text-xs sm:text-sm md:text-base lg:text-lg border-b"
+            >
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">
-                    <div className=" h-40 w-40">
-                      <img src={games.image} alt={games.game} />
+                    <div className=" sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-40 lg:w-40">
+                      <img src={games.image} alt='' />
                     </div>
                   </div>
                 </div>
               </td>
-              <td className='font-semibold text-lg'>{games.game}</td>
-              <td className='font-semibold text-lg'>{games.genres}</td>
-              <td className='font-semibold text-lg'>{games.rating} ⭐</td>
-              <td className='font-semibold text-lg'>
+              <td className='font-semibold sm:text-base md:text-lg lg:text-lg'>{games.game}</td>
+              <td className='font-semibold sm:text-base md:text-lg lg:text-lg'>{games.genres}</td>
+              <td className='font-semibold sm:text-base md:text-lg lg:text-lg'>{games.rating} ⭐</td>
+              <td className='font-semibold sm:text-base md:text-lg lg:text-lg'>
                 {games.publish}
               </td>
-              <td className='font-semibold text-lg w-80'>
+              <td className='font-semibold w-40 sm:w-64 md:w-80'>
                 {games.description}
               </td>
               

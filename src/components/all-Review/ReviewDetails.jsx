@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Typewriter } from "react-simple-typewriter";
 
 const ReviewDetails = () => {
     const review = useLoaderData()
@@ -55,10 +56,14 @@ const ReviewDetails = () => {
    
 
     return (
-        <div className="card card-compact bg-base-100 max-w-3xl shadow-xl mx-auto">
+       <div>
+
+<h1 className="text-4xl font-bold text-center mt-8 mb-12 text-orange-600"><Typewriter  words={['Review Details']}></Typewriter></h1>
+
+         <div className="card card-compact bg-base-100 max-w-sm md:max-w-xl lg:max-w-3xl shadow-xl mx-auto">
   <figure>
     <img
-    className="w-full h-96"
+    className="w-full h-80 lg:h-96"
       src={image}
       alt="Shoes" />
   </figure>
@@ -67,14 +72,15 @@ const ReviewDetails = () => {
     <p className="text-center pb-3 font-medium text-base">{description}</p>
     <p className="text-center pb-4 font-bold text-gray-500">Genre: {genres}</p>
    <div className="flex justify-between pb-3 mx-10">
-   <p className="text-xl font-semibold mb-4">Published on: {publish}</p>
-   <p className="font-semibold text-xl ">Rating: {rating} ⭐</p>
+   <p className="text-base md:text-lg lg:text-xl font-semibold mb-4">Published on: {publish}</p>
+   <p className="font-semibold text-base md:text-lg lg:text-xl ">Rating: {rating} ⭐</p>
    </div>
     <div className="text-center">
       <button onClick={handleWatchList} className="px-3 py-3 rounded-xl bg-gradient-to-r from-orange-400 to-orange-600 text-white font-bold">Add to WatchList</button>
     </div>
   </div>
 </div>
+       </div>
     );
 };
 

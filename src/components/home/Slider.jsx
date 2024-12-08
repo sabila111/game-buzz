@@ -1,3 +1,4 @@
+import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
     return (
@@ -10,7 +11,7 @@ const Slider = () => {
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide4" className="btn btn-circle">❮</a>
       <div>
-      <p className="text-4xl font-bold mb-8">A New Place For Professional Gamers</p>
+      <p className="text-4xl font-bold mb-8"><Typewriter words={['A New Place For Professional Gamers']}></Typewriter> </p>
      <div className="flex justify-center items-center">
      <button className="px-3 py-3 bg-orange-600 text-white rounded-lg">Join Us</button>
     
@@ -26,7 +27,7 @@ const Slider = () => {
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide1" className="btn btn-circle">❮</a>
       <div>
-      <p className="text-4xl font-bold mb-8">A New Place For Professional Gamers</p>
+      <p className="text-4xl font-bold mb-8"><Typewriter words={['A New Place For Professional Gamers']}></Typewriter> </p>
      <div className="flex justify-center items-center">
      <button className="px-3 py-3 bg-orange-600 text-white rounded-lg">Join Us</button>
     
@@ -42,7 +43,7 @@ const Slider = () => {
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide2" className="btn btn-circle">❮</a>
       <div>
-      <p className="text-4xl font-bold mb-8">A New Place For Professional Gamers</p>
+      <p className="text-4xl font-bold mb-8"><Typewriter words={['A New Place For Professional Gamers']}></Typewriter> </p>
      <div className="flex justify-center items-center">
      <button className="px-3 py-3 bg-orange-600 text-white rounded-lg">Join Us</button>
     
@@ -58,7 +59,7 @@ const Slider = () => {
     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
       <a href="#slide3" className="btn btn-circle">❮</a>
       <div>
-      <p className="text-4xl font-bold mb-8">A New Place For Professional Gamers</p>
+      <p className="text-4xl font-bold mb-8"><Typewriter words={['A New Place For Professional Gamers']}></Typewriter> </p>
      <div className="flex justify-center items-center">
      <button className="px-3 py-3 bg-orange-600 text-white rounded-lg">Join Us</button>
     

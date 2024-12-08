@@ -73,7 +73,7 @@ const AddReview = () => {
                     </label>
                 </div>
 
-                <div className="form-control md:w-1/2 ml-4">
+                <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                     <label className="label">
                         <span className="label-text">Email</span>
                     </label>
@@ -99,7 +99,7 @@ const AddReview = () => {
                         </label>
                     </div>
 
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                         <label className="label">
                             <span className="label-text">Genres</span>
                         </label>
@@ -124,11 +124,19 @@ const AddReview = () => {
                             <span className="label-text">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" placeholder="rating" className="input input-bordered w-full" />
+                            <input type="number" name="rating" placeholder="rating" className="input input-bordered w-full" 
+                            max="10" 
+                            min="1"
+                            onInput={(e) => {
+                                if (e.target.value > 10) e.target.value = 10; 
+                                if (e.target.value < 1) e.target.value = 1;    
+                            }}
+                            
+                            />
                         </label>
                     </div>
 
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                         <label className="label">
                             <span className="label-text">Short Description</span>
                         </label>
@@ -153,7 +161,7 @@ const AddReview = () => {
                         </label>
                     </div>
 
-                    <div className="form-control md:w-1/2 ml-4">
+                    <div className="form-control md:w-1/2 ml-0 md:ml-4 lg:ml-4">
                         <label className="label">
                             <span className="label-text">Publishing Year</span>
                         </label>
@@ -167,7 +175,7 @@ const AddReview = () => {
                 </div>
 
                 
-                <input type="submit" value="Add Button" className="btn btn-block mt-6" />
+                <input type="submit" value="Add Button" className="btn btn-block mt-6 " />
             </form>
         </div>
     );

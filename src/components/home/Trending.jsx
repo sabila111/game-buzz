@@ -2,17 +2,17 @@ import { Fade } from "react-awesome-reveal";
 import { Typewriter } from 'react-simple-typewriter'
 const Trending = () => {
     return (
-        <div className="mt-10">
-          <p className="text-orange-700 text-xl">Trending</p>
+        <div className="mt-14 mb-12">
+          <p className="text-orange-700 text-xl"><Typewriter words={['Trending--']}></Typewriter> </p>
           <div className="flex justify-between">
-          <Fade><h3 className="text-5xl font-bold">Trending Now</h3></Fade>
+          <Fade><h3 className="mt-4 text-3xl md:text-3xl lg:text-5xl font-bold">Trending Now</h3></Fade>
           <button className="px-3 py-3 rounded-lg bg-orange-600 text-white font-semibold">View All</button>
           </div>
 
 
-<div className="grid sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-5 mt-7">
+<div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-5 mt-12 pb-12">
 
-<div className="card bg-base-100 w-72 shadow-xl">
+<div className=" bg-base-100 w-72 shadow-xl">
   <figure>
     <img
       src="https://i.ibb.co.com/zNqGh4K/tockcake.jpg"
@@ -27,7 +27,7 @@ const Trending = () => {
   </div>
 </div>
 
-<div className="card bg-base-100 w-72 shadow-xl">
+<div className=" bg-base-100 w-72 shadow-xl">
   <figure>
     <img
     className="h-72 w-full"
@@ -44,7 +44,7 @@ const Trending = () => {
 </div>
 
 
-<div className="card bg-base-100 w-72 shadow-xl">
+<div className="bg-base-100 w-72 shadow-xl">
   <figure>
     <img
     className="h-72"
@@ -61,7 +61,7 @@ const Trending = () => {
 </div>
 
 
-<div className="card bg-base-100 w-72 shadow-xl">
+<div className=" bg-base-100 w-72 shadow-xl">
   <figure>
     <img
     className="h-72"

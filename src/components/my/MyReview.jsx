@@ -85,7 +85,7 @@ const MyReview = () => {
                 <div className="flex items-center gap-3">
                   <div className="avatar">
                     <div className=" sm:h-20 sm:w-20 md:h-24 md:w-24 lg:h-40 lg:w-40">
-                      <img src={reviews.image} alt={reviews.game} />
+                      <img src={reviews.image} alt='' />
                     </div>
                   </div>
                 </div>
