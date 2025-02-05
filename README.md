@@ -4,6 +4,9 @@
 
 Game Buzz is a web application designed to provide users with a platform to discover and explore game reviews.  It offers dynamic sorting and filtering options, highlights top-rated games, and presents reviews in an interactive and visually appealing way. The site is built with a modern tech stack, ensuring a responsive experience across all devices.
 
+## Live Link 
+https://game-review-project-c3e90.web.app/
+
 ## Screenshots
 
 ![Game Buzz Screenshot 1](https://i.ibb.co.com/zWnrmHcq/Screenshot-2025-02-05-193431.png)  
